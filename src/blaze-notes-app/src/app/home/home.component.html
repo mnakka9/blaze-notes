@@ -1,0 +1,28 @@
+<div class="flex flex-col items-center justify-center h-full p-4">
+  <p class="text-xl font-bold text-blue-600 mb-4">Welcome to blaze notes and to-dos</p>
+  <p class="text-gray-700 mb-4">All notes and to-do's are saved with a temporary GUID and available in the system for 30 days.</p>
+  <p class="text-sm text-gray-500">You can access notes and to-dos via the navigation.</p>
+  
+  <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+    <div class="p-4 flex justify-center">
+      <p class="mb-4 p-2" *ngIf="auth.user$ | async as user" class="text-gray-700 mb4">Welcome {{user.name}}</p>
+      <button
+        (click)="auth.logout({ logoutParams: { returnTo: document.location.origin } })"
+        class="bg-red-500 text-white font-bold py-3 px-6 rounded hover:bg-red-700 ml-4"
+      >
+        Log out
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <div class="flex justify-center p-4">
+      <button
+        (click)="auth.loginWithRedirect()"
+        class="bg-green-500 text-white font-bold py-3 px-6 rounded hover:bg-green-700"
+      >
+        Log in
+      </button>
+    </div>
+  </ng-template>
+</div>

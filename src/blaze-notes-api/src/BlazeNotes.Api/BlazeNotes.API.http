@@ -1,0 +1,6 @@
+@BHostAddress = http://localhost:5223
+
+GET {{HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

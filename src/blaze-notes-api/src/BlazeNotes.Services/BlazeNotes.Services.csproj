@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazeNotes.Data\BlazeNotes.Data.csproj" />
+    <ProjectReference Include="..\BlazeNotes.Domain\BlazeNotes.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,86 @@
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4 text-blue-600">Blaze To Dos</h1>
+  
+  <div class="mb-4 p-4 border rounded shadow-lg bg-white">
+    <h2 class="text-xl font-bold mb-2">Get your saved to-dos</h2>
+    <p class="text-gray-700 mb-4 p-4 border rounded bg-gray-100">
+      Please note that you need to enter a valid GUID to get your saved to-dos.
+      When you click save, the to-dos will be saved against the GUID.
+      If you are adding to-dos newly, after saving you will get a GUID which you can use to get the to-dos.
+    </p>
+    <input
+      type="text"
+      [(ngModel)]="guid"
+      placeholder="Enter GUID"
+      class="border rounded p-2 w-full"
+    />
+    <button
+      (click)="getListByGuid()"
+      class="bg-green-400 text-white rounded p-2 mt-2 w-full"
+    >
+      Get To-Dos
+    </button>
+  </div>
+
+  <div class="mb-4 p-4 border rounded shadow-lg bg-white">
+    <h2 class="text-xl text-orange-600 font-bold mb-2">Add a new to-do to list</h2>
+    <input
+      type="text"
+      [(ngModel)]="newTodoTitle"
+      placeholder="Add a new todo"
+      class="border rounded p-2 w-full"
+    />
+    <button
+      (click)="addTodo()"
+      class="bg-blue-500 text-white rounded p-2 mt-2 w-full"
+    >
+      Add Todo
+    </button>
+    <h2 class="text-xl p-4 font-bold mb-2">Todo List</h2>
+    <ul>
+      <li
+        *ngFor="let todo of todos$ | async"
+        class="flex items-center justify-between p-2 border-b"
+      >
+        <div class="flex items-center">
+          <input
+            placeholder="Complete a to do"
+            type="checkbox"
+            [checked]="todo.isCompleted"
+            (change)="completeTodo(todo)"
+            class="mr-2"
+          />
+          <label
+            [ngClass]="{ 'line-through': todo.isCompleted }"
+            class="cursor-pointer"
+            (click)="completeTodo(todo)"
+          >
+            {{ todo.title }}
+          </label>
+        </div>
+        <div class="flex items-center">
+          <button
+            (click)="deleteTodo(todo)"
+            class="text-red-500 hover:text-red-700 ml-2"
+          >
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div class="flex justify-between mt-4">
+      <button
+        (click)="saveTodos()"
+        class="bg-purple-500 text-white rounded p-2 w-1/2 mr-2"
+      >
+        Save Todos
+      </button>
+      <button
+        (click)="resetPage()"
+        class="bg-gray-500 text-white rounded p-2 w-1/2 ml-2"
+      >
+        Reset
+      </button>
+    </div>
+  </div>
+</div>

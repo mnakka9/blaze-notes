@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+//scss-lint disable unknownAtRules
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #app-root {
+  @apply h-full;
+  margin: 0;
+}
+
+#app-root {
+  @apply flex flex-col min-h-screen;
+}
+
+.router-outlet-container {
+  @apply flex-grow;
+}
+
+//scss-lint enable unknownAtRules

@@ -1,0 +1,29 @@
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="https://mncdn9.sirv.com/Images/blaze.jpg" alt="Logo" class="h-8 w-8 mr-2">
+        <span class="text-white text-lg font-bold">Blaze Notes</span>
+      </a>
+      <!-- Menu -->
+      <div class="hidden md:flex space-x-4">
+        <a routerLink="/notes" class="text-white hover:text-gray-300">Notes</a>
+        <a routerLink="/todo" class="text-white hover:text-gray-300">Todo</a>
+        <a routerLink="/profile" class="text-white hover:text-gray-300">Profile</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-button" class="text-white focus:outline-none" (click)="toggleMenu()">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a routerLink="/notes" class="block text-white hover:text-gray-300 p-2">Notes</a>
+      <a routerLink="/todo" class="block text-white hover:text-gray-300 p-2">Todo</a>
+      <a routerLink="/profile" class="block text-white hover:text-gray-300 p-2">Profile</a>
+    </div>
+  </nav>
